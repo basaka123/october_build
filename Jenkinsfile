@@ -12,7 +12,7 @@ pipeline {
     stages{
         stage('check out'){
             steps{
-                sh 'git clone git@github.com:basaka123/october_build.git'
+                git branch: 'main', credentialsId: 'd8e80ce0-6e6d-4518-a511-3399c280b57e', url: 'https://github.com/basaka123/test_pipeline'
             }
         }
         stage ('terraform init'){
