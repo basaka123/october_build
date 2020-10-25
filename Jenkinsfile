@@ -7,9 +7,7 @@ pipeline {
     terraform 'terraform_test'
     }
         
-	
-        
-    }
+	      
 	
     stages{
         stage('check out'){
