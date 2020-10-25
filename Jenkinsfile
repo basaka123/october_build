@@ -1,12 +1,11 @@
-def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-personal']]
-
 pipeline {
     agent any
     tools {
     terraform 'terraform_test'
     }
         
-        
+   def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-personal']]   
+	
     stages{
         stage('check out'){
             steps{
