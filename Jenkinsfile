@@ -1,18 +1,18 @@
-#!groovy
 pipeline {
     agent any
-        node {
-            label 'master'
-        }
+    tools {
+    terraform 'terraform_test'
+    }
         
     environment {
 	    AWS_ACCESS_KEY_ID = credentials('aws-personal')
         AWS_SECRET_KEY_ID = credentials('aws-personal')
+    }   
         
     stages{
         stage('check out'){
             steps{
-                sh 'rm -rf *;git clone git@github.com:basaka123/october_build.git'
+                sh 'git clone git@github.com:basaka123/october_build.git'
             }
         }
         stage ('terraform init'){
@@ -25,11 +25,11 @@ pipeline {
               sh 'terraform apply --auto-approve'
           }
     }
-    stage ('terraform destroy'){
-          steps{
-              sh 'terraform destroy --auto-approve'
-          }
-    }
+#    stage ('terraform destroy'){
+#          steps{
+#              sh 'terraform destroy --auto-approve'
+#          }
+#    }
    }
 }
 }
