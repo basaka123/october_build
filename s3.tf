@@ -9,6 +9,7 @@ resource "aws_s3_bucket" "bucket" {
   acl           = "private"
   force_destroy = true
 
+
   versioning {
     enabled = true
   }
@@ -19,36 +20,37 @@ resource "aws_s3_bucket" "bucket" {
     target_bucket = aws_s3_bucket.bucket-logs.id
     target_prefix = "log/"
   }
-  policy = <<EOF
-{
-  "Id": "Policy1603547045238",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1603546855042",
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::terraform-201920011140/*",
-      "Principal": {
-        "AWS": [
-          "seni_stone"
-        ]
-      }
-    },
-    {
-      "Sid": "Stmt1603547041984",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::terraform-201920011140/*",
-      "Principal": {
-        "AWS": [
-          "anna_jimoh"
-        ]
-      }
-    }
-  ]
 }
-  EOF
-}
+#  policy = <<EOF
+#{
+#  "Id": "Policy1603547045238",
+#  "Version": "2012-10-17",
+#  "Statement": [
+#    {
+#      "Sid": "Stmt1603546855042",
+#      "Action": [
+#        "s3:GetObject"
+#      ],
+#      "Effect": "Allow",
+#      "Resource": "arn:aws:s3:::terraform-201920011140/*",
+#      "Principal": {
+#        "AWS": [
+#          "seni_stone"
+#        ]
+#      }
+#    },
+#    {
+#      "Sid": "Stmt1603547041984",
+#      "Action": "s3:*",
+#      "Effect": "Allow",
+#      "Resource": "arn:aws:s3:::terraform-201920011140/*",
+#      "Principal": {
+#        "AWS": [
+#          "anna_jimoh"
+#        ]
+#      }
+#    }
+#  ]
+#}
+#}
+#EOF
