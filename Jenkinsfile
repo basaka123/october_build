@@ -1,5 +1,9 @@
 def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-personal']]
 
+environment {
+  version    = "~> 2.7
+}
+
 pipeline {
     agent any
     tools {
