@@ -10,7 +10,7 @@ pipeline {
     stages{
         stage('check out'){
             steps{
-                sh 'rm -rf *;git clone https://github.com/basaka123/october_build.git'
+                sh 'git clone https://github.com/basaka123/october_build.git'
             }
         }
 
