@@ -12,7 +12,7 @@ pipeline {
     stages{
         stage('check out'){
             steps{
-                sh 'rm -rf *;git@https://github.com/basaka123/october_build.git'
+                sh 'rm -rf test*;git clone https://github.com/basaka123/october_build.git'
             }
         }
         stage ('terraform init'){
