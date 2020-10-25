@@ -1,3 +1,6 @@
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-personal']]
+
+
 pipeline {
     agent any
     tools {
@@ -5,9 +8,6 @@ pipeline {
     }
         
 	
-        environment {
-	    AWS_ACCESS_KEY_ID = credentials('jenkins-aws-access-key')
-        AWS_SECRET_KEY_ID = credentials('jenkins-aws-secret-key')
         
     }
 	
