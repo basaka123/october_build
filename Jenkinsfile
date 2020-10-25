@@ -4,10 +4,6 @@ pipeline {
     terraform 'terraform_test'
     }
         
-    environment {
-	    AWS_ACCESS_KEY_ID = credentials('aws-personal')
-        AWS_SECRET_KEY_ID = credentials('aws-personal')
-    }   
         
     stages{
         stage('check out'){
@@ -15,6 +11,12 @@ pipeline {
                 sh 'rm -rf test*;git clone https://github.com/basaka123/october_build.git'
             }
         }
+
+  environment {
+	    AWS_ACCESS_KEY_ID = credentials('aws-personal')
+        AWS_SECRET_KEY_ID = credentials('aws-personal')
+    }   	    
+	    
         stage ('terraform init'){
           steps{
               sh 'terraform init'
