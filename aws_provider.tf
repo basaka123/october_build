@@ -1,8 +1,8 @@
-provider "aws" {
+//provider "aws" {
 //  access_key = var.access_key
 //  secret_key = var.secret_key
-  region     = var.region
-  version    = "~> 2.7"
+//  region     = var.region
+//  version    = "~> 2.7"
 }
 
 
