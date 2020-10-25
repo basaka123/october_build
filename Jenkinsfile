@@ -1,3 +1,5 @@
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-personal']]
+
 pipeline {
     agent any
     tools {
@@ -12,10 +14,6 @@ pipeline {
             }
         }
 
-  environment {
-	    AWS_ACCESS_KEY_ID = credentials('aws-personal')
-        AWS_SECRET_KEY_ID = credentials('aws-personal')
-    }   	    
 	    
         stage ('terraform init'){
           steps{
